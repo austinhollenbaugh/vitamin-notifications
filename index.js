@@ -18,7 +18,8 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/text', twilioCtrl.sendText);
+app.post('/sendText', twilioCtrl.sendText);
+app.post('/receiveText', twilioCtrl.receiveText);
 
 
 var port = config.serverPort;
