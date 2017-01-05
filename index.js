@@ -2,7 +2,8 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
-    twilio = require('twilio');
+    twilio = require('twilio'),
+    cron = require('node-cron');
 
 //external files needed
 var config = require('./server/config.js'),
@@ -18,9 +19,12 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/sendText', twilioCtrl.sendText);
+app.post('/manualText', twilioCtrl.manualText);
 app.post('/receiveText', twilioCtrl.receiveText);
 
+cron.schedule('* 8 * * Sunday', function(){
+  console.log('sending a text at 8am every Sunday');
+});
 
 var port = config.serverPort;
 app.listen(port, function() {
