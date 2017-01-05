@@ -7,10 +7,11 @@
   <body ng-controller="mainCtrl">
 
   <input type="text" ng-model="message"/>
-  <button ng-click="sendMessage()">Send</button>
+  <button ng-click="sendMessage(message)">Send</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
   <script src="./app.js"></script>
   <script src="./controllers/mainCtrl.js"></script>
+  <script src="./services/mainService.js"></script>
   </body>
 </html>

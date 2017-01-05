@@ -12,11 +12,10 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(__dirname + './public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
-  // console.log('hit');
 });
 
 app.post('/text', twilioCtrl.sendText);
